@@ -2,20 +2,41 @@
   "version": 2,
   "name": "shipwithatlas",
   "builds": [
-    { "src": "index.html", "use": "@vercel/static" },
-    { "src": "track.html", "use": "@vercel/static" },
-    { "src": "style.css", "use": "@vercel/static" },
-    { "src": "script.js", "use": "@vercel/static" },
-    { "src": "api/*.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/track", "dest": "/track.html" },
-    { "src": "/admin", "dest": "/admin.html" },
-    { "src": "/admin/(.*)", "dest": "/admin/$1" },
-    { "src": "/api/(.*)", "dest": "/api/$1.js" },
-    { "src": "/data/(.*)", "dest": "/data/$1" }
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "track.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "style.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "script.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/*.js",
+      "use": "@vercel/node"
+    }
   ],
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/track",
+      "destination": "/track.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin.html"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    }
+  ]
 }
