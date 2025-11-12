@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AtlasLine Admin</title>
+  <style>
+    body{font-family:system-ui,Arial;margin:24px;background:#f7fafc;color:#111}
+    .card{background:white;padding:20px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.06);max-width:900px;margin:12px auto}
+    input,select,textarea{width:100%;padding:8px;margin:6px 0;border:1px solid #ddd;border-radius:4px}
+    button{padding:8px 12px;border:0;border-radius:6px;cursor:pointer}
+    .small{max-width:420px}
+    .row{display:flex;gap:12px}
+    .row > *{flex:1}
+    table{width:100%;border-collapse:collapse;margin-top:12px}
+    th,td{padding:8px;border-bottom:1px solid #eee;text-align:left}
+    .muted{color:#666;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>AtlasLine — Admin Tracking Editor</h2>
+    <p class="muted">Password-only admin. Keep your ADMIN_KEY secret.</p>
+
+    <div id="loginSection" class="card small">
+      <h3>Admin login</h3>
+      <input id="adminKey" type="password" placeholder="Enter admin password" />
+      <button id="btnLogin">Login</button>
+      <div id="loginStatus" class="muted"></div>
+    </div>
+
+    <div id="editor" style="display:none">
+      <h3>Edit tracking entries</h3>
+      <div class="row">
+        <input id="entryId" placeholder="Tracking ID (e.g. ATX001)" />
+        <select id="entryStatus">
+          <option>Processing Order</option>
+          <option>Picked Up</option>
+          <option>In Transit</option>
+          <option>Out for Delivery</option>
+          <option>Delivered</option>
+        </select>
+        <input id="entryEta" placeholder="ETA (e.g. 2-4 days or Today or -)" />
+      </div>
+      <div style="margin-top:8px">
+        <button id="btnAdd">Add</button>
+        <button id="btnEdit">Edit</button>
+        <button id="btnDelete">Delete</button>
+        <button id="btnRefresh">Refresh List</button>
+      </div>
+
+      <table id="listTable"><thead><tr><th>ID</th><th>Status</th><th>ETA</th><th>Updated</th></tr></thead><tbody></tbody></table>
+    </div>
+  </div>
+
+  <script src="/admin/script-admin.js"></script>
+</body>
+</html>

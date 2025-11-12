@@ -1,0 +1,14 @@
+[
+  {
+    "id": "ATX001",
+    "status": "Delivered",
+    "eta": "-",
+    "updatedAt": "2025-11-12T09:03:30.917147"
+  },
+  {
+    "id": "ATX002",
+    "status": "In Transit",
+    "eta": "2-4 days",
+    "updatedAt": "2025-11-12T09:03:30.917165"
+  }
+]
